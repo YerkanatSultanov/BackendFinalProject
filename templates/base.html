@@ -23,20 +23,19 @@
         <input type="email" class="form-control" id="form_f" placeholder="Название книги или автор">
     </div>
 </nav>
-<div class="navbar navbar-expand-lg navbar-light bg-success">
-    <a class="nav-item nav-link text-dark font-italic" href="#">Научные</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link font-italic" href="#">Художественные</a>
-            <a class="nav-item nav-link font-italic" href="#">Справочные </a>
-            <a class="nav-item nav-link font-italic" href="#">Исторические</a>
-            <img src="{% static 'tel.png' %}" alt="">
+<div id="header">
+    <div class="left_side_header">
+        <span>Акция</span>
+        <span>Новинки</span>
+    </div>
+    <div class="right_side_header">
+        <img class="phone" src="{% static 'phone.svg' %}">
+        <div style="display: flex; flex-direction: column">
+            <span>Телефон</span>
+            <span>+7(7771)875-312</span>
         </div>
     </div>
+
 </div>
 {% block content %}
 {% endblock %}
