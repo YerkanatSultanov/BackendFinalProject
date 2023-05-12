@@ -1,0 +1,36 @@
+Index: templates/base.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Книжный магазин - BookStore</title>\r\n</head>\r\n<body>\r\n\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/base.html b/templates/base.html
+--- a/templates/base.html	(revision 721250e9690774ffa904a8f1b93187c52ede285d)
++++ b/templates/base.html	(date 1683888362624)
+@@ -5,6 +5,8 @@
+     <title>Книжный магазин - BookStore</title>
+ </head>
+ <body>
++{% block content %}
+ 
++{% endblock %}
+ </body>
+ </html>
+\ No newline at end of file
+Index: reviews/templates/book-search.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/reviews/templates/book-search.html b/reviews/templates/book-search.html
+new file mode 100644
+--- /dev/null	(date 1683888447373)
++++ b/reviews/templates/book-search.html	(date 1683888447373)
+@@ -0,0 +1,5 @@
++{% extends 'base.html' %}
++
++{% block content %}
++<h1>Test</h1>
++{% endblock %}
+\ No newline at end of file
