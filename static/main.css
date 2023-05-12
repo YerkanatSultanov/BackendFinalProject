@@ -1,0 +1,27 @@
+.logo_text_book {
+    font-weight: 700;
+    color: #3ab54a;
+    padding-left: 20px;
+}
+
+.logo_text {
+    font-family: Roboto, sans-serif;
+    font-size: 36px;
+    color: #333333;
+}
+
+.left_side {
+    display: flex;
+    align-items: center;
+}
+
+#form_f {
+    width: 500px;
+}
+
+.upper_header {
+    display: flex;
+    padding-top: 30px;
+    justify-content: space-around;
+    align-items: center;
+}

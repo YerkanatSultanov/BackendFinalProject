@@ -4,12 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Книжный магазин - BookStore</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-{% block content %}
-    <nav>
-        <img src="{% static 'logo.png' %}">
-    </nav>
-{% endblock %}
+<nav class="upper_header">
+    <div class="left_side">
+        <img src="{% static 'logo.png' %}" alt="">
+        <div class="logo_text">
+        <span class="logo_text_book">
+            BOOK
+        </span>
+            STORE
+        </div>
+    </div>
+    <div class="right_side">
+        <input type="email" class="form-control" id="form_f" placeholder="Название книги или автор">
+    </div>
+</nav>
 </body>
 </html>
