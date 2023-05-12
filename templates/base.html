@@ -1,10 +1,15 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Книжный магазин - BookStore</title>
 </head>
 <body>
-
+{% block content %}
+    <nav>
+        <img src="{% static 'logo.png' %}">
+    </nav>
+{% endblock %}
 </body>
 </html>
