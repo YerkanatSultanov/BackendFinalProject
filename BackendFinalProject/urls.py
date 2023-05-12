@@ -2,7 +2,9 @@ from django.contrib import admin
 from django.urls import path
 from reviews import views
 
+from reviews import views
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('', views.index, name='index'),
 ]
