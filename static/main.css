@@ -95,3 +95,75 @@ body {
     margin-bottom: 40px;
 }
 
+* {
+    margin: 0;
+}
+
+html, body {
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.container1 {
+    max-width: 1200px;
+    width: 800px;
+    margin: 30px auto;
+    background: #f1f1f1;
+    padding: 30px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+button {
+    background: #3ab54a;
+    border: 0.2px solid rgb(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: .9rem;
+}
+
+button:hover {
+    background: #1d862c;
+}
+
+button:active {
+    color: #fff;
+}
+
+.courses {
+    margin-top: 40px;
+}
+
+.courses li {
+    margin-bottom: 20px;
+}
+
+.courses a {
+    color: #222;
+}
+
+.slider {
+    width: 256px;
+    height: 256px;
+    margin: 20px auto;
+}
+
+.slider-line {
+    width: 1024px;
+    height: 256px;
+    display: flex;
+    background: none;
+    position: relative;
+    left: 0;
+    transition: all ease 1s;
+}
+
+
