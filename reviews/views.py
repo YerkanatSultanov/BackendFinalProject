@@ -68,3 +68,4 @@ def my_logout_view(request):
     logout(request)
     # Additional logic if needed
     return redirect('home_page')
+
