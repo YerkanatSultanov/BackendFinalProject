@@ -32,8 +32,17 @@
         <span class="links_left"><a href="">Акция</a></span>
         <span class="links_left" style="padding-left: 30px"><a href="">Новинки</a></span>
     </div>
-    <div></div>
+
     <div class="right_side_header">
+        {% block auth %}
+            {% if user.is_authenticated %}
+            {% else %}
+                <div class="reg-buttons">
+                    <a class="btn btn-light" href="{% url 'login' %}">Login</a>
+                    <a class="btn btn-light" href="{% url 'register' %}">Register</a>
+                </div>
+            {% endif %}
+        {% endblock %}
         <img class="phone" src="{% static 'phone.svg' %}" alt="Phone Photo">
         <div style="display: flex; flex-direction: column; padding-left: 10px; color: white">
             <span>Телефон</span>
