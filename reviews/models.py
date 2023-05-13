@@ -85,3 +85,5 @@ class Category(models.Model):
     category = models.CharField(max_length=50,
                                 help_text="The category of the books")
 
+    def __str__(self):
+        return self.category

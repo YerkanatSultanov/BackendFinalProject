@@ -3,12 +3,16 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-
+from .models import *
 from .forms import RegistrationForm
 
 
 def index(request):
-    return render(request, 'base.html')
+    posts = Book.objects.all()
+    context = {
+        'posts': posts
+    }
+    return render(request, 'reviews/main.html', context=context)
 
 
 def register(request):
