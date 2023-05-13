@@ -9,10 +9,14 @@ from .forms import RegistrationForm
 
 def index(request):
     posts = Book.objects.all()
+    categories = Category.objects.all()
     context = {
-        'posts': posts
+        'posts': posts,
+        'categories': categories
     }
     return render(request, 'reviews/main.html', context=context)
+
+
 
 
 def register(request):
@@ -31,7 +35,7 @@ def register(request):
         else:
             my_user = User.objects.create_user(uname, email, pass1)
             my_user.save()
-            return redirect('login.html')
+            return redirect('login')
 
     context = {'f': form}
 

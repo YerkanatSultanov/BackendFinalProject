@@ -83,7 +83,7 @@ class Review(models.Model):
 
 class Category(models.Model):
     category = models.CharField(max_length=50,
-                                help_text="The category of the books")
+                                help_text="The category of the book")
 
     def __str__(self):
         return self.category

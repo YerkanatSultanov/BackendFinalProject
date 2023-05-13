@@ -4,14 +4,11 @@
 <div class="content">
         <div class="catalog">
             <div class="catalog-text"><h1>Каталог</h1></div>
-            <hr align="center" width="300" size="2" color="#ff0000"/>
-            <div class="catalog-content">Казахская Классика</div>
-            <hr align="center" width="300" size="2" color="#ff0000"/>
-            <div class="catalog-content">Русская Классика</div>
-            <hr align="center" width="300" size="2" color="#ff0000"/>
-            <div class="catalog-content">Зарубежные</div>
-            <hr align="center" width="300" size="2" color="#ff0000"/>
-            <div class="catalog-content">Исторические</div>
+            {% for category in categories %}
+                <hr align="center" width="300" size="2" color="#ff0000"/>
+                <div class="catalog-content"><h4>{{ category.category }}</h4></div>
+
+            {% endfor %}
         </div>
 
         <div class="container1">
