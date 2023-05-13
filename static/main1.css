@@ -19,6 +19,11 @@ body {
     align-items: center;
 }
 
+.form-style {
+    display: flex;
+    align-items: center;
+}
+
 #form_f {
     width: 500px;
 }
