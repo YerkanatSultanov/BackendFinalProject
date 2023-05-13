@@ -33,6 +33,7 @@ class Book(models.Model):
     saleFromPrice = models.CharField(max_length=50,
                                      help_text="Для определения новой ценны учитывая скидку")
     slug = models.SlugField(unique=True, null=False, max_length=50)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

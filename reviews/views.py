@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -53,3 +53,9 @@ def log_in(request):
 
     context = {'f': form}
     return render(request, 'reviews/login.html', context)
+
+
+def log_out(request):
+    logout(request)
+    messages.info(request, "You have successfully logged out.")
+    return redirect("home_page")
