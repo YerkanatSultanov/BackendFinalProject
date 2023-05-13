@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'main1.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
 </head>
 <body>
 <nav class="upper_header">
@@ -35,9 +36,68 @@
             <span>+7(7771)875-312</span>
         </div>
     </div>
-
 </div>
 {% block content %}
+    <div class="content">
+        <div class="catalog">
+            <div class = "catalog-text"><h1>Каталог</h1></div>
+            <hr align="center" width="300" size="2" color="#ff0000" />
+            <div class = "catalog-content">Казахская Классика</div>
+            <hr align="center" width="300" size="2" color="#ff0000" />
+            <div class = "catalog-content">Русская Классика</div>
+            <hr align="center" width="300" size="2" color="#ff0000" />
+            <div class = "catalog-content">Зарубежные</div>
+            <hr align="center" width="300" size="2" color="#ff0000" />
+            <div class = "catalog-content">Исторические</div>
+        </div>
+        <section class="awSlider">
+            <div class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target=".carousel" data-slide-to="0" class="active"></li>
+                    <li data-target=".carousel" data-slide-to="1"></li>
+                    <li data-target=".carousel" data-slide-to="2"></li>
+                    <li data-target=".carousel" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img class="yerka" src="https://source.unsplash.com/random?landscape,night"
+                             alt="soda">
+                        <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                        <img class="yerka" src="https://source.unsplash.com/random?landscape,city">
+                        <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                        <img class="yerka" src="https://source.unsplash.com/random?landscape,mountain" alt="aquaPhoto">
+                        <div class="carousel-caption"></div>
+                    </div>
+                </div>
+
+                <a class="carousel-control noback" href=".carousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Geri</span>
+                </a>
+                <a class="ri carousel-control noback" href=".carousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">İleri</span>
+                </a>
+            </div>
+        </section>
+    </div>
 {% endblock %}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>
+    $('section.awSlider .carousel').carousel({
+        pause: "hover",
+        interval: 5000
+    });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
 </body>
+
+<script>
+</script>
 </html>
+
