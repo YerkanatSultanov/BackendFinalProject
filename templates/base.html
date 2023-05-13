@@ -21,7 +21,11 @@
         </div>
     </div>
     <div class="right_side">
-        <input type="email" class="form-control" id="form_f" placeholder="Название книги или автор">
+        <form action="{% url 'search_book' %}">
+            <label for="form_f"></label>
+            <input type="email" class="form-control" id="form_f" placeholder="Название книги или автор">
+            <button type="submit">Search</button>
+        </form>
     </div>
     <div class="cart">
         <img id="cart" src="{% static 'cart.svg' %}">

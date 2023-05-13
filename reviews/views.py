@@ -3,6 +3,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+
+from .forms import RegistrationForm, SearchForm
 from .models import *
 from .forms import RegistrationForm
 
@@ -17,6 +19,22 @@ def index(request):
     return render(request, 'reviews/main.html', context=context)
 
 
+# def filter_books(request):
+#     return render(request, 'reviews/main.html')
+
+def search_books(request):
+    search_text = request.GET.get("search", "")
+    form = SearchForm(request.GET)
+    books = set()
+
+    if form.is_valid() and form.cleaned_data["search"]:
+        search = form.cleaned_data["search"]
+        search_in = form.cleaned_data.get("search_in") or "title"
+
+        if search_in == "title":
+            books = Book.objects.filter(title__icontains=search)
+        else:
+            Contributor.objects.filter(first_names__icontains=search)
 
 
 def register(request):
@@ -69,3 +87,7 @@ def my_logout_view(request):
     # Additional logic if needed
     return redirect('home_page')
 
+
+
+# def profile(request):
+#     return render(request, 'profile.html')
