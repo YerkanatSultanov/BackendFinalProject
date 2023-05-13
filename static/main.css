@@ -43,6 +43,7 @@ body {
     margin-top: 20px;
     display: flex;
     align-items: center;
+    border-bottom: .3rem solid #258c33;
     justify-content: space-around;
 }
 
@@ -93,15 +94,6 @@ body {
 
 .catalog-text{
     margin-bottom: 40px;
-}
-
-* {
-    margin: 0;
-}
-
-html, body {
-    font-size: 18px;
-    font-family: sans-serif;
 }
 
 .container1 {
@@ -164,6 +156,10 @@ button:active {
     position: relative;
     left: 0;
     transition: all ease 1s;
+}
+
+.reg-buttons {
+    padding-right: 100px;
 }
 
 
