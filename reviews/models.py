@@ -1,5 +1,6 @@
 from django.contrib import auth
 from django.db import models
+from django.urls import reverse
 
 
 class Publisher(models.Model):
@@ -87,3 +88,6 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'cat_id': self.pk})
