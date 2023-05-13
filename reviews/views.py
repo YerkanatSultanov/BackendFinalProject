@@ -14,7 +14,8 @@ def index(request):
     categories = Category.objects.all()
     context = {
         'posts': posts,
-        'categories': categories
+        'categories': categories,
+        'cat_selected' : 0
     }
     return render(request, 'reviews/main.html', context=context)
 
@@ -89,3 +90,15 @@ def my_logout_view(request):
 
 def profile(request):
     return render(request, 'reviews/profile.html')
+
+
+def show_category(request, cat_id):
+    posts = Book.objects.filter(category=cat_id)
+    cats = Category.objects.all()
+    context = {
+        'posts': posts,
+        'categories': cats,
+        'cat_selected': cat_id
+    }
+
+    return render(request, 'reviews/main.html', context=context)
