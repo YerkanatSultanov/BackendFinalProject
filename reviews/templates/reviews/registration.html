@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>User Registration</title>
+    <style>
+        body {
+            background-color: rgb(58, 181, 74);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+        }
+
+        input[type=text], input[type=email], input[type=password] {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid black;
+            width: 80%;
+        }
+
+        input[type=submit] {
+            background-color: rgb(58, 181, 74);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        input[type=submit]:hover {
+            background-color: darkgreen;
+        }
+
+        .logo_text_book {
+            font-weight: 700;
+            color: #3ab54a;
+            padding-left: 20px;
+        }
+
+        .logo_text {
+            font-family: Roboto, sans-serif;
+            font-size: 36px;
+            color: #333333;
+        }
+
+        .logo_container {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="logo_container">
+            <img src="{% static 'logo1.png' %}" alt="">
+            <div class="logo_text">
+        <span class="logo_text_book">
+            BOOK
+        </span>
+                STORE
+            </div>
+        </div>
+        <h2>User Registration</h2>
+        <label for="username">Username:</label>
+        {{ f.username }}
+        <label for="email">Email:</label>
+        {{ f.email }}
+        <label for="password">Password:</label>
+        {{ f.password1 }}
+        <label for="password">Confirm your password:</label>
+        {{ f.password2 }}
+        <input type="submit" value="Register">
+
+        {% for message in messages %}
+            <p id="messages">{{ message }}</p>
+        {% endfor %}
+
+        <div>
+            Already have an account? <a href="{% url 'login' %}">Login</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
