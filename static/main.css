@@ -104,12 +104,17 @@ html, body {
     font-family: sans-serif;
 }
 
-.container {
+.container1 {
     max-width: 1200px;
+    width: 800px;
     margin: 30px auto;
     background: #f1f1f1;
     padding: 30px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
 }
 
 h1 {
@@ -118,19 +123,18 @@ h1 {
 }
 
 button {
-    background: none;
-    border: 1px solid black;
-    border-radius: 4px;
+    background: #3ab54a;
+    border: 0.2px solid rgb(0, 0, 0, 0.2);
+    border-radius: 10px;
     padding: 10px 20px;
     font-size: .9rem;
 }
 
 button:hover {
-    background: orangered;
+    background: #1d862c;
 }
 
 button:active {
-    background: #000;
     color: #fff;
 }
 
@@ -147,7 +151,6 @@ button:active {
 }
 
 .slider {
-    border: 0.5px solid rgb(0,0,0,0.2);
     width: 256px;
     height: 256px;
     margin: 20px auto;
@@ -162,4 +165,5 @@ button:active {
     left: 0;
     transition: all ease 1s;
 }
+
 
