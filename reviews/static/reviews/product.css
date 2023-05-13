@@ -1,0 +1,57 @@
+
+.borders {
+    border: 1px solid rgb(173, 173, 173, 0.5);
+    /*border-radius: 5%;*/
+    /*border-shadow: 1px 1px 1px 1px rgb(173,173,173);*/
+    width: 230px;
+    display: flex;
+    justify-content: center;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.price {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.bookName {
+    padding-bottom: 5px;
+}
+
+.author {
+    padding-bottom: 20px;
+    opacity: 0.5;
+    font-size: 13px;
+}
+
+.description {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    align-items: center;
+}
+
+.available{
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+}
+
+.bucket {
+    border: 1px solid #3ab54a;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3ab54a;
+}
+
+.bucket:hover {
+    background-color: white;
+}

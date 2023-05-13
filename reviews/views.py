@@ -4,9 +4,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
-from .forms import RegistrationForm, SearchForm
-from .models import *
 from .forms import RegistrationForm
+from .forms import SearchForm
+from .models import *
 
 
 def index(request):
@@ -84,10 +84,8 @@ def log_in(request):
 
 def my_logout_view(request):
     logout(request)
-    # Additional logic if needed
     return redirect('home_page')
 
 
-
-# def profile(request):
-#     return render(request, 'profile.html')
+def profile(request):
+    return render(request, 'reviews/profile.html')
