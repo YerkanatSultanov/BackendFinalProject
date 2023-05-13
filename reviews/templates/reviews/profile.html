@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{% static 'reviews/profile.css' %}">
     <div class="container">
         <div class="profile-photo">
-            <img src="https://www.austinchronicle.com/binary/d47f/music_feature1.jpg" alt="profile photo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU" alt="profile photo">
             <div class="user-info">
                 <h1>Profile</h1>
                 <p>Username: {{ request.user.username }}</p>
@@ -13,8 +13,9 @@
                 <p>Last Name: {{ request.user.last_name }}</p>
             </div>
             <div class="buttons">
-                <button>Edit Profile</button>
-                <button>Log Out</button>
+                <a href="{% url 'edit_profile' %}">
+                    <button>Edit Profile</button>
+                </a>
             </div>
         </div>
     </div>

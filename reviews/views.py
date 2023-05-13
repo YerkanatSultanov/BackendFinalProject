@@ -1,11 +1,10 @@
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
-from .forms import RegistrationForm
-from .forms import SearchForm
+from .forms import *
 from .models import *
 
 
@@ -15,7 +14,7 @@ def index(request):
     context = {
         'posts': posts,
         'categories': categories,
-        'cat_selected' : 0
+        'cat_selected': 0
     }
     return render(request, 'reviews/main.html', context=context)
 
@@ -71,7 +70,6 @@ def log_in(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.info(request, f"You are now logged in as {username}.")
                 return redirect("home_page")
             else:
                 messages.error(request, "Invalid username or password.")
@@ -90,6 +88,21 @@ def my_logout_view(request):
 
 def profile(request):
     return render(request, 'reviews/profile.html')
+
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        user = request.user
+        user.first_name = request.POST.get('first_name')
+        user.last_name = request.POST.get('last_name')
+        user.email = request.POST.get('email')
+        user.save()
+        return redirect('profile')
+    else:
+        user = request.user
+        context = {'user': user}
+        return render(request, 'reviews/edit_profile.html', context)
 
 
 def show_category(request, cat_id):

@@ -3,73 +3,7 @@
 <html lang="">
 <head>
     <title>User Registration</title>
-    <style>
-        body {
-            background-color: rgb(58, 181, 74);
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        form {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 400px;
-        }
-
-        input[type=text], input[type=email], input[type=password] {
-            margin: 10px;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid black;
-            width: 80%;
-        }
-
-        input[type=submit] {
-            background-color: rgb(58, 181, 74);
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-
-        input[type=submit]:hover {
-            background-color: darkgreen;
-        }
-
-        .logo_text_book {
-            font-weight: 700;
-            color: #3ab54a;
-            padding-left: 20px;
-        }
-
-        .logo_text {
-            font-family: Roboto, sans-serif;
-            font-size: 36px;
-            color: #333333;
-        }
-
-        .logo_container {
-            display: flex;
-            align-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'reviews/forForms.css' %}">
 </head>
 <body>
 <div class="container">
@@ -100,11 +34,6 @@
             You don't have an account? <a href="{% url 'register' %}">Registration</a>
         </div>
     </form>
-
-    <div>
-
-    </div>
-
 </div>
 </body>
 </html>
