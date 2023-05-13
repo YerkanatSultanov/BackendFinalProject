@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+        <div class="catalog">
+            <div class="catalog-text"><h1>Каталог</h1></div>
+            {% for category in categories %}
+                <hr align="center" width="300" size="2" color="#ff0000"/>
+                <div class="catalog-content"><h4>{{ category.category }}</h4></div>
+
+            {% endfor %}
+        </div>
+
+        <div class="container1">
+            <div class="slider">
+                <div class="slider-line">
+                    {% for p in posts %}
+{#                    <img style="padding-right: 50px" src="{% static 'logo1.png' %}" alt="">#}
+{#                    <img style="padding-right: 50px" src="{% static 'logo1.png' %}" alt="">#}
+{#                    <img style="padding-right: 50px" src="{% static 'logo1.png' %}" alt="">#}
+{#                    <img style="padding-right: 50px" src="{% static 'logo1.png' %}" alt="">#}
+                        <img style="padding-right: 50px" src="{{ p.cover.url }}">
+                    {% endfor %}
+                </div>
+            </div>
+            <button class="slider-next">
+                >
+            </button>
+        </div>
+    </div>
+{% endblock %}
