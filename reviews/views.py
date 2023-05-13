@@ -64,7 +64,7 @@ def log_in(request):
     return render(request, 'reviews/login.html', context)
 
 
-def log_out(request):
+def my_logout_view(request):
     logout(request)
-    messages.info(request, "You have successfully logged out.")
-    return render(request, "base.html")
+    # Additional logic if needed
+    return redirect('home_page')
