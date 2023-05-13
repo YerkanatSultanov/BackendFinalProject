@@ -95,3 +95,71 @@ body {
     margin-bottom: 40px;
 }
 
+* {
+    margin: 0;
+}
+
+html, body {
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    background: #f1f1f1;
+    padding: 30px;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+button {
+    background: none;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: .9rem;
+}
+
+button:hover {
+    background: orangered;
+}
+
+button:active {
+    background: #000;
+    color: #fff;
+}
+
+.courses {
+    margin-top: 40px;
+}
+
+.courses li {
+    margin-bottom: 20px;
+}
+
+.courses a {
+    color: #222;
+}
+
+.slider {
+    border: 0.5px solid rgb(0,0,0,0.2);
+    width: 256px;
+    height: 256px;
+    margin: 20px auto;
+}
+
+.slider-line {
+    width: 1024px;
+    height: 256px;
+    display: flex;
+    background: none;
+    position: relative;
+    left: 0;
+    transition: all ease 1s;
+}
+
