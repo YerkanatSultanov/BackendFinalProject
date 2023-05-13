@@ -11,15 +11,17 @@
 </head>
 <body>
 <nav class="upper_header">
-    <div class="left_side">
-        <img src="{% static 'logo1.png' %}" alt="">
-        <div class="logo_text">
+    <a href="{% url 'home_page' %}">
+        <div class="left_side">
+            <img src="{% static 'logo1.png' %}" alt="">
+            <div class="logo_text">
         <span class="logo_text_book">
             BOOK
         </span>
-            STORE
+                <STORE>STORE</STORE>
+            </div>
         </div>
-    </div>
+    </a>
     <div class="right_side">
         <form class="form-style" action="{% url 'search_book' %}">
             <label for="form_f"></label>

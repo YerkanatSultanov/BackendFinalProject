@@ -101,4 +101,4 @@ def show_category(request, cat_id):
         'cat_selected': cat_id
     }
 
-    return render(request, 'reviews/main.html', context=context)
+    return render(request, 'reviews/category_all_books.html', context=context)

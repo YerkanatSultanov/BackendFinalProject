@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
+    {% block content %}
     <link rel="stylesheet" href="{% static 'reviews/product.css' %}">
     <div class="content">
         <div class="catalog">
@@ -11,7 +11,8 @@
                 {% if category.pk == cat_selected %}
                     <div class="catalog-content"><a style="color: greenyellow">{{ category.category }}</a></div>
                 {% else %}
-                    <div class="catalog-content"><a href="{{ category.get_absolute_url }}">{{ category.category }}</a></div>
+                    <div class="catalog-content"><a href="{{ category.get_absolute_url }}">{{ category.category }}</a>
+                    </div>
                 {% endif %}
             {% endfor %}
         </div>

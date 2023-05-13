@@ -82,6 +82,7 @@ body {
 
 .content {
     display: flex;
+    background-color: #f1f1f1;
 }
 
 .catalog {
@@ -106,7 +107,7 @@ body {
     max-width: 1200px;
     width: 800px;
     margin: 30px auto;
-    background: #f1f1f1;
+    background: #c2c1c1;
     padding: 30px;
     overflow: hidden;
     display: flex;
