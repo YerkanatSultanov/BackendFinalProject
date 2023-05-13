@@ -27,7 +27,7 @@ def register(request):
         else:
             my_user = User.objects.create_user(uname, email, pass1)
             my_user.save()
-            return redirect('login.html')
+            return redirect('login')
 
     context = {'f': form}
 
@@ -37,6 +37,7 @@ def register(request):
 def log_in(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
+
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
@@ -58,4 +59,4 @@ def log_in(request):
 def log_out(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    return redirect("home_page")
+    return render(request, "base.html")

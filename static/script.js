@@ -8,3 +8,15 @@ document.querySelector('.slider-next').addEventListener('click', function(){
     }
     sliderLine.style.left = -offset + 'px';
 })
+
+// Optional: Close the dropdown when clicking outside of it
+window.addEventListener('click', function(event) {
+  var dropdowns = document.getElementsByClassName('dropdown-content');
+  for (var i = 0; i < dropdowns.length; i++) {
+    var dropdown = dropdowns[i];
+    if (!event.target.matches('.dropdown-btn') && !dropdown.contains(event.target)) {
+      dropdown.style.display = 'none';
+    }
+  }
+});
+
