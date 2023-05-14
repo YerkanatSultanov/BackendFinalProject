@@ -80,14 +80,14 @@ body {
     margin-left: 10px;
 }
 
-.main-catalog{
+.main-catalog {
     display: flex;
 
 }
 
 .content {
     display: flex;
-    background-color: #f1f1f1;
+    background-color: #ffffff;
 }
 
 .catalog {
@@ -95,13 +95,20 @@ body {
     margin-left: 30px;
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
     align-content: center;
     justify-items: center;
     width: 25%;
+    padding: 15px;
+    border: 1px solid #cecece;
+    border-radius: 4px;
+    transition: all ease 300ms;
 }
 
-.catalog-content-text{
+.catalog:hover {
+    background-color: #f1f1f1;
+}
+
+.catalog-content-text {
     /*margin-right: 250px;*/
 }
 
@@ -120,7 +127,7 @@ body {
     width: 110px;
 }
 
-.main-content{
+.main-content {
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -128,8 +135,8 @@ body {
     width: auto;
 }
 
-.books-place{
-   display: flex;
+.books-place {
+    display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     width: auto;
@@ -137,16 +144,24 @@ body {
 
 
 .container1 {
-    max-width: 1200px;
-    width: 800px;
+    max-height: 500px;
+    width: 900px;
+    height: 450px;
     margin: 30px auto;
-    background: #c2c1c1;
+    background: white;
     padding: 30px;
     overflow: hidden;
     display: flex;
     align-items: center;
     flex-direction: column;
-    border-radius: 10px;
+    justify-content: space-between;
+    border-radius: 4px;
+    transition: all ease 300ms;
+    border: 1px solid #cecece;
+}
+
+.container1:hover {
+    background: #f1f1f1;
 }
 
 h1 {
@@ -190,12 +205,37 @@ button:active {
 
 .slider-line {
     width: 1024px;
-    height: 256px;
+    height: auto;
     display: flex;
     background: none;
     position: relative;
     left: 0;
     transition: all ease 1s;
+}
+
+.slider-next {
+    color: white;
+    background-color: #1d862c;
+    border: 1px solid rgb(0,0,0, 0.2);
+    transition: all ease 50ms;
+    border-radius: 10px;
+}
+
+.slider-next:focus {
+    background-color: white;
+    border: 1px solid rgb(0,0,0, 0.2);
+    color: black;
+}
+
+.slider-next:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(0,0,0, 0.2);
+}
+
+.slider-next:active {
+    background-color: white;
+    color: black;
 }
 
 .reg-buttons {
@@ -243,12 +283,11 @@ button:active {
 }
 
 
-
 .link {
     text-decoration: none;
     color: white;
 }
 
-.link:hover{
+.link:hover {
     color: white;
 }

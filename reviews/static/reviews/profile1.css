@@ -8,7 +8,7 @@ body {
     flex-direction: row;
     margin: 50px;
     padding: 20px;
-    height: 300px;
+    height: auto;
     width: 800px;
     background-color: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -77,4 +77,33 @@ body {
 
 .buttons button:hover {
     background-color: #2980b9;
+}
+
+.editorial {
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-button {
+    background-color: #3ab54a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.editorial label {
+    font-size: 16px;
+    padding-top: 15px;
+}
+
+.inputs {
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0, 0.2);
+    padding: 10px;
 }

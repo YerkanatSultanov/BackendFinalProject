@@ -1,21 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'reviews/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'reviews/profile1.css' %}">
     <div class="container">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <h2>Edit Profile</h2>
-            <label for="username">Username:</label>
-            <input type="text" id="username" value="{{ user.username }}" disabled>
-            <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}">
-            <label for="last_name">Last Name:</label>
-            <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="{{ user.email }}">
-            <button type="submit">Save</button>
+            <div class="editorial">
+                <label for="username">Никнейм :</label>
+                <input class="inputs" type="text" id="username" value="{{ user.username }}" disabled>
+                <label for="first_name">Имя :</label>
+                <input class="inputs" type="text" id="first_name" name="first_name" value="{{ user.first_name }}">
+                <label for="last_name">Фамилия :</label>
+                <input class="inputs" type="text" id="last_name" name="last_name" value="{{ user.last_name }}">
+                <label for="email">Email :</label>
+                <input class="inputs" type="email" id="email" name="email" value="{{ user.email }}">
+                <button class="submit-button" type="submit">Save</button>
 
+            </div>
             {% for message in messages %}
                 <p id="messages">{{ message }}</p>
             {% endfor %}
