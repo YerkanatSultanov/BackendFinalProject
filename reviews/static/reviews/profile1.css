@@ -26,6 +26,9 @@ body {
 .profile-photo img {
     max-width: 70%;
     max-height: 70%;
+    width:  100px;
+    height: 100px;
+    margin: 10px 0 20px 0;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     margin-right: 30px;

@@ -26,7 +26,7 @@
         <form class="form-style" action="{% url 'search_book' %}">
             <label for="form_f"></label>
             <input type="text" class="form-control" id="form_f" placeholder="Название книги или автор">
-            <button style="margin-left: 20px" type="submit">Search</button>
+            <button style="margin-left: 20px; color:white; border-radius: 4px" type="submit">Search</button>
         </form>
     </div>
     <a href="{% url 'cart' %}">
@@ -48,7 +48,6 @@
                     <button class="dropdown-btn">Привет, {{ request.user.username }}</button>
                     <div class="dropdown-content">
                         <a href="{% url 'profile' %}">Профиль</a>
-                        <a href="#">Option 2</a>
                         <a href="{% url 'logout' %}">Выход</a>
                     </div>
                 </div>
