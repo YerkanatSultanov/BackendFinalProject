@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{% static 'reviews/product1.css' %}">
     <div class="content">
         <div class="catalog">
-            <div class="catalog-text"><h1>Каталог</h1></div>
+            <div class="catalog-text"><h1>{{ title }}</h1></div>
             {% for category in categories %}
                 <hr align="left" width="300" size="2" color="#ff0000"/>
                 {% if category.pk == cat_selected %}

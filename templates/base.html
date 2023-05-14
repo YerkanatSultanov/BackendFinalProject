@@ -23,9 +23,9 @@
         </div>
     </a>
     <div class="right_side">
-        <form class="form-style" action="{% url 'search_book' %}">
+        <form method="GET" class="form-style" action="{% url 'search_book' %}">
             <label for="form_f"></label>
-            <input type="text" class="form-control" id="form_f" placeholder="Название книги или автор">
+            <input type="text" name="search_term" class="form-control" id="form_f" placeholder="Название книги или автор">
             <button style="margin-left: 20px; color:white; border-radius: 4px" type="submit">Search</button>
         </form>
     </div>

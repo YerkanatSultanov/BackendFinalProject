@@ -12,6 +12,7 @@ def index(request):
     posts = Book.objects.all()
     categories = Category.objects.all()
     context = {
+        'title': "Каталог",
         'posts': posts,
         'categories': categories,
         'cat_selected': 0
@@ -23,18 +24,17 @@ def index(request):
 #     return render(request, 'reviews/main.html')
 
 def search_books(request):
-    search_text = request.GET.get("search", "")
-    form = SearchForm(request.GET)
-    books = set()
-
-    if form.is_valid() and form.cleaned_data["search"]:
-        search = form.cleaned_data["search"]
-        search_in = form.cleaned_data.get("search_in") or "title"
-
-        if search_in == "title":
-            books = Book.objects.filter(title__icontains=search)
-        else:
-            Contributor.objects.filter(first_names__icontains=search)
+    search_term = request.GET.get('search_term')
+    results = []
+    categories = Category.objects.all()
+    if search_term:
+        results = Book.objects.filter(title__icontains=search_term) | Book.objects.filter(publisher__name__icontains=search_term)
+    context = {
+        'title': "Результат поиска",
+        'posts': results,
+        'categories': categories
+    }
+    return render(request, "reviews/main.html", context=context)
 
 
 def register(request):

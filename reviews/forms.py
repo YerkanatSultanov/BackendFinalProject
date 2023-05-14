@@ -11,13 +11,7 @@ class RegistrationForm(UserCreationForm):
 
 
 class SearchForm(forms.Form):
-    search = forms.CharField(required=False, min_length=3)
-    category = forms.ChoiceField(required=False,
-                                 choices=(
-                                     ("title", "Title"),
-                                     ("contributor", "Contributor")
-                                 ))
-
+    search_term = forms.CharField(required=False, min_length=3)
 
 class UserForm(forms.ModelForm):
     class Meta:
