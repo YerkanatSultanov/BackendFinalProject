@@ -80,6 +80,11 @@ body {
     margin-left: 10px;
 }
 
+.main-catalog{
+    display: flex;
+
+}
+
 .content {
     display: flex;
     background-color: #f1f1f1;
@@ -88,11 +93,22 @@ body {
 .catalog {
     margin-top: 20px;
     margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-content: center;
+    justify-items: center;
+    width: 25%;
+}
+
+.catalog-content-text{
+    /*margin-right: 250px;*/
 }
 
 .catalog-content {
     margin-top: 5px;
     font-size: 20px;
+    width: 100px;
 }
 
 .catalog-content:hover {
@@ -101,7 +117,24 @@ body {
 
 .catalog-text {
     margin-bottom: 40px;
+    width: 110px;
 }
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: flex-start;
+    width: auto;
+}
+
+.books-place{
+   display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: auto;
+}
+
 
 .container1 {
     max-width: 1200px;

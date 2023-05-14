@@ -1,11 +1,12 @@
 
 .borders {
-    border: 1px solid rgb(173, 173, 173, 0.5);
+    border: 3px solid rgb(173, 173, 173, 0.5);
     /*border-radius: 5%;*/
     /*border-shadow: 1px 1px 1px 1px rgb(173,173,173);*/
     width: 230px;
     display: flex;
     justify-content: center;
+    margin: 10px;
 }
 
 .product {
