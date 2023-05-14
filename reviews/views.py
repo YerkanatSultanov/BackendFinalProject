@@ -108,6 +108,11 @@ def edit_profile(request):
 
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
+        user = request.user
+        user.first_name = request.POST.get('first_name')
+        user.last_name = request.POST.get('last_name')
+        user.email = request.POST.get('email')
+        user.save()
         if form.is_valid():
             profile = form.save(commit=False)
             profile.user = request.user
@@ -115,26 +120,13 @@ def edit_profile(request):
             return redirect('profile')
     else:
         form = ProfileForm(instance=profile)
+        user = request.user
 
     return render(request, 'reviews/edit_profile.html', {
         'form': form,
-        'profile': profile
+        'profile': profile,
+        'user': user
     })
-
-
-# @login_required
-# def edit_profile(request):
-#     if request.method == 'POST':
-#         user = request.user
-#         user.first_name = request.POST.get('first_name')
-#         user.last_name = request.POST.get('last_name')
-#         user.email = request.POST.get('email')
-#         user.save()
-#         return redirect('profile')
-#     else:
-#         user = request.user
-#         context = {'user': user}
-#         return render(request, 'reviews/edit_profile.html', context)
 
 
 def show_category(request, cat_id):
