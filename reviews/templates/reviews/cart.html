@@ -12,7 +12,7 @@
                             <img src="{{ item.book.cover.url }}" alt="Book 1"/>
                             <div class="item-details">
                                 <h3>{{ item.book.title }}</h3>
-                                <p>{{ item.book.price }} tg</p>
+                                <p>{{ item.book.price }} </p>
                                 <a href="{% url 'remove_item' item.book.id %}">
                                     <button class="remove-item">Remove</button>
                                 </a>
