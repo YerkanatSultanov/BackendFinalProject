@@ -1,30 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <h1>Shopping Cart</h1>
+    <link rel="stylesheet" href="{% static 'reviews/cart.css' %}">
+    <h1>Cart</h1>
     {% if cart_items %}
-        <table>
-            <thead>
-            <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for item in cart_items %}
-                <tr>
-                    <td>{{ item.book.title }}</td>
-                    <td>{{ item.book.price }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>{{ item.product.price}}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        {#        <p>Total: ${{ cart_items|total }}</p>#}
-        <a href="{% url 'checkout' %}">Checkout</a>
+        <div class="container">
+            <div class="cart-items">
+                {% for item in cart_items %}
+                    <div class="cart-item">
+                        <div class="book-info">
+                            <img src="{{ item.book.cover.url }}" alt="Book 1"/>
+                            <div class="item-details">
+                                <h3>{{ item.book.title }}</h3>
+                                <p>{{ item.book.price }} tg</p>
+                                <a href="{% url 'remove_item' item.book.id %}">
+                                    <button class="remove-item">Remove</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     {% else %}
-        <h2>Your cart is empty.</h2>
+        <div class="container">
+            <h2>Your cart is empty.</h2>
+        </div>
     {% endif %}
 {% endblock %}

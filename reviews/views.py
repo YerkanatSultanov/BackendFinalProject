@@ -179,34 +179,29 @@ def book_detail(request, book_pk, review_pk=None):
 
 
 @login_required
+def view_cart(request):
+    cart = Cart.objects.get(user=request.user)
+    cart_items = cart.cartitem_set.all()
+    return render(request, 'reviews/cart.html', {'cart_items': cart_items})
+
+
+@login_required
 def add_to_cart(request, book_id):
-    book = Book.objects.get(id=book_id)
-    cart_, created = Cart.objects.get_or_create(user=request.user, book=book)
-    if not created:
-        cart_.quantity += 1
-        cart_.save()
-        messages.success(request, 'Product quantity updated.')
-    else:
-        messages.success(request, 'Product added to cart.')
+    book = get_object_or_404(Book, id=book_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    cart_item, item_created = CartItem.objects.get_or_create(cart=cart, book=book)
+    if not item_created:
+        cart_item.quantity += 1
+        cart_item.save()
     return redirect('cart')
 
 
 @login_required
-def cart(request):
-    cart_items = Cart.objects.filter(user=request.user)
-    context = {
-        'cart_items': cart_items
-    }
-    return render(request, 'reviews/cart.html', context)
-
-
-@login_required
 def remove_from_cart(request, book_id):
-    cart_item = Cart.objects.get(user=request.user, book_id=book_id)
-    if cart_item:
-        cart_item.delete()
-        messages.success(request, "Item removed from cart")
+    cart_item = CartItem.objects.get(cart__user=request.user, book_id=book_id)
+    if cart_item.quantity > 1:
+        cart_item.quantity -= 1
+        cart_item.save()
     else:
-        messages.warning(request, "Item not in cart")
-
+        cart_item.delete()
     return redirect('cart')
