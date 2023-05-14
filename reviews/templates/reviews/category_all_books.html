@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block content %}
-    <link rel="stylesheet" href="{% static 'reviews/product.css' %}">
+    <link rel="stylesheet" href="{% static 'reviews/product1.css' %}">
     <div class="main-catalog">
         <div class="catalog">
             <div class="catalog-text"><h1>Каталог</h1></div>
             {% for category in categories %}
                 <hr align="left" width="300" size="2" color="#ff0000"/>
                 {% if category.pk == cat_selected %}
-                    <div class="catalog-content"><a style="color: greenyellow">{{ category.category }}</a></div>
+                    <div class="catalog-content"><a style="color: green">{{ category.category }}</a></div>
                 {% else %}
                     <div class="catalog-content"><a href="{{ category.get_absolute_url }}">{{ category.category }}</a>
                     </div>
@@ -22,16 +22,18 @@
                     <h1 class="catalog-content-text">{{ category.category }}</h1>
                 {% endif %}
             {% endfor %}
+
             <div class="books-place">
+                {% for post in posts %}
                 <div class="borders">
                     <div class="product">
                         <div class="bookCover">
-                            <img src="{% static 'reviews/img.png' %}"
+                            <img src="{{ post.cover.url }}"
                                  alt="cover">
                         </div>
-                        <div class="price">1800 Tg</div>
-                        <div class="bookName">Memory</div>
-                        <div class="author">Kto to tam</div>
+                        <div class="price">{{ post.price }}</div>
+                        <div class="bookName">{{ post.title }}</div>
+                        <div class="author">{{ post.publisher }}</div>
                         <div class="description">
                             <div class="available">
                                 <div class="dot">
@@ -53,7 +55,9 @@
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
+
         </div>
     </div>
 {% endblock %}

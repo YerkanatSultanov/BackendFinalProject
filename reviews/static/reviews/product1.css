@@ -56,3 +56,9 @@
 .bucket:hover {
     background-color: white;
 }
+
+.bookCover img {
+    height: 250px;
+    width: 200px;
+    margin-bottom: 10px;
+}
