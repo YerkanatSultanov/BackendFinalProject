@@ -1,5 +1,6 @@
 from django.urls import path
-
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
@@ -12,5 +13,6 @@ urlpatterns = [
     path('profile/', views.profile_page, name='profile'),
     path('category/<int:cat_id>/', views.show_category, name='category'),
     path('cart/', views.cart, name='cart'),
+    path('book_detail/', views.book_detail, name="book_detail"),
     path('category/<int:book_pk>', views.add_to_cart, name='add_to_cart')
 ]

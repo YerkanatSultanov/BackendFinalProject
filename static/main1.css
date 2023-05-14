@@ -142,6 +142,61 @@ body {
     width: auto;
 }
 
+.main-reviews{
+
+}
+
+.reviews-book-place{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.book-cover{
+    border: 1px solid rgb(173, 173, 173, 0.3);
+    padding: 20px;
+    margin-top: 50px;
+    margin-left: 60px;
+}
+
+.book-cover img{
+    width: 330px;
+    height: 400px;
+}
+
+.name-description{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-top: 50px;
+
+}
+
+.book-reviews-name{
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.price-place{
+    display: flex;
+    flex-direction: column;
+}
+.list-group-item{
+     margin: 10px;
+}
+
+.text-info{
+    margin: 10px;
+}
+.comment-block{
+    width: 500px;
+}
+
+.comment-block h3{
+    margin-left: 50px;
+}
 
 .container1 {
     max-height: 500px;

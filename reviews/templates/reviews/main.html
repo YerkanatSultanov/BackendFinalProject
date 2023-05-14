@@ -23,10 +23,10 @@
                     {% for p in posts %}
                         <div class="borders">
                             <div class="product">
-                                <div class="bookCover">
+                                <a href=" {% url 'book_detail' %}"> <div class="bookCover">
                                     <img src="{{ p.cover.url }}"
                                          alt="cover">
-                                </div>
+                                </div></a>
                                 <div class="price">{{ p.price }}</div>
                                 <div class="bookName">{{ p.title }}</div>
                                 <div class="author">{{ postspublisher }}</div>

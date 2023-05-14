@@ -140,6 +140,10 @@ def show_category(request, cat_id):
 
     return render(request, 'reviews/category_all_books.html', context=context)
 
+def book_detail(request):
+
+    return render(request,'reviews/reviews_book.html')
+
 
 @login_required
 def add_to_cart(request, book_id):
