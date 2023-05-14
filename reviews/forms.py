@@ -1,6 +1,4 @@
 from django import forms
-from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserChangeForm as BaseUserChangeForm
 from django.contrib.auth.forms import UserCreationForm
 
 from .models import *
@@ -19,3 +17,15 @@ class SearchForm(forms.Form):
                                      ("title", "Title"),
                                      ("contributor", "Contributor")
                                  ))
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('avatar',)
