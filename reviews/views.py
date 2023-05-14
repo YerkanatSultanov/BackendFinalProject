@@ -86,23 +86,55 @@ def my_logout_view(request):
     return redirect('home_page')
 
 
-def profile(request):
-    return render(request, 'reviews/profile.html')
+@login_required
+def profile_page(request):
+    try:
+        profile = request.user.profile
+    except Profile.DoesNotExist:
+        profile = None
+
+    return render(request, 'reviews/profile.html', {
+        'user': request.user,
+        'profile': profile
+    })
 
 
 @login_required
 def edit_profile(request):
+    try:
+        profile = request.user.profile
+    except Profile.DoesNotExist:
+        profile = None
+
     if request.method == 'POST':
-        user = request.user
-        user.first_name = request.POST.get('first_name')
-        user.last_name = request.POST.get('last_name')
-        user.email = request.POST.get('email')
-        user.save()
-        return redirect('profile')
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            return redirect('profile')
     else:
-        user = request.user
-        context = {'user': user}
-        return render(request, 'reviews/edit_profile.html', context)
+        form = ProfileForm(instance=profile)
+
+    return render(request, 'reviews/edit_profile.html', {
+        'form': form,
+        'profile': profile
+    })
+
+
+# @login_required
+# def edit_profile(request):
+#     if request.method == 'POST':
+#         user = request.user
+#         user.first_name = request.POST.get('first_name')
+#         user.last_name = request.POST.get('last_name')
+#         user.email = request.POST.get('email')
+#         user.save()
+#         return redirect('profile')
+#     else:
+#         user = request.user
+#         context = {'user': user}
+#         return render(request, 'reviews/edit_profile.html', context)
 
 
 def show_category(request, cat_id):
@@ -115,3 +147,37 @@ def show_category(request, cat_id):
     }
 
     return render(request, 'reviews/category_all_books.html', context=context)
+
+
+@login_required
+def add_to_cart(request, book_id):
+    book = Book.objects.get(id=book_id)
+    cart_, created = Cart.objects.get_or_create(user=request.user, book=book)
+    if not created:
+        cart_.quantity += 1
+        cart_.save()
+        messages.success(request, 'Product quantity updated.')
+    else:
+        messages.success(request, 'Product added to cart.')
+    return redirect('cart')
+
+
+@login_required
+def cart(request):
+    cart_items = Cart.objects.filter(user=request.user)
+    context = {
+        'cart_items': cart_items
+    }
+    return render(request, 'reviews/cart.html', context)
+
+
+@login_required
+def remove_from_cart(request, book_id):
+    cart_item = Cart.objects.get(user=request.user, book_id=book_id)
+    if cart_item:
+        cart_item.delete()
+        messages.success(request, "Item removed from cart")
+    else:
+        messages.warning(request, "Item not in cart")
+
+    return redirect('cart')
