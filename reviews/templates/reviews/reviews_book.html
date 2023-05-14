@@ -4,52 +4,64 @@
 {% block content %}
     <div class="main-reviews">
         <div class="reviews-book-place">
+            <div class="mmm">
+                <div class="book-cover">
+                    <img src="{{ book.cover.url }}" alt="book cover">
+                </div>
+                <div class="name-description">
+                    <div class="book-reviews-name">
+                        {{ book.title }}
+                    </div>
+                    <div class="description-text" style="max-width: 300px; display: flex; flex-wrap: wrap">
+                       <p> {{ book.isbn}}</p>
+                    </div>
+                </div>
+            </div>
 
-            <div class="book-cover">
-                <img src="{{ book.cover.url }}" alt="book cover">
-            </div>
-            <div class="name-description">
-                <div class="book-reviews-name">
-                   {{ book.title }}
-                </div>
-                <div class="description-text">
-                    {{ book.isbn }}
-                </div>
-            </div>
             <div class="price-place">
-                {{ book.price }}
+                <div class="price">{{ book.price }} tg</div>
+                <div class="available-reviews">
+                    <div class="dot">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             color="green"
+                             class="bi bi-circle-fill" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="8"/>
+                        </svg>
+                    </div>
+                    <div class="text">В наличии</div>
+                </div>
                 <div class="bucket">
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"
                          class="bi bi-bucket"
                          viewBox="0 0 16 16">
                         <path d="M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527zm9.892 1-1.286 8.574a.5.5 0 0 1-.494.426H4.36a.5.5 0 0 1-.494-.426L2.58 6h10.838z"/>
                     </svg>
+                    В корзину
                 </div>
             </div>
-
         </div>
-    <div class="comment-block">
-        <h3>Review Comments</h3>
-        <form method="post" {% if is_file_upload %}enctype="multipart/form-data" {% endif %}>
-        {% csrf_token %}
-        {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">
-        {% if instance %}Save{% else %}Create{% endif %}
-    </button>
-</form>
+        <div class="comment-block">
+            <h3>Review Comments</h3>
+            <form method="post" {% if is_file_upload %}enctype="multipart/form-data" {% endif %}>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">
+                    {% if instance %}Save{% else %}Create{% endif %}
+                </button>
+            </form>
 
-<ul>
-    {% for review in reviews %}
-    <li class="list-group-item">
-        <span class="text-info">Review comment: </span> <span>{{ review.content  }}</span>
-        <br>
-        <span class="text-info">Created on: </span><span>{{ review.date_created }}</span>
-        <br>
-        <span class="text-info">Creator: </span><span>{{ review.creator.username }}</span>
-        <br>
-    </li>
-    {% endfor %}
-</ul>
-    </div>
+            <ul>
+                {% for review in reviews %}
+                    <li class="list-group-item">
+                        <span class="text-info">Review comment: </span> <span>{{ review.content }}</span>
+                        <br>
+                        <span class="text-info">Created on: </span><span>{{ review.date_created }}</span>
+                        <br>
+                        <span class="text-info">Creator: </span><span>{{ review.creator.username }}</span>
+                        <br>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 {% endblock %}
