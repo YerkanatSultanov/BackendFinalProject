@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import *
 from .models import *
@@ -140,9 +140,42 @@ def show_category(request, cat_id):
 
     return render(request, 'reviews/category_all_books.html', context=context)
 
-def book_detail(request):
 
-    return render(request,'reviews/reviews_book.html')
+def book_detail(request, book_pk, review_pk=None):
+    book = get_object_or_404(Book, pk=book_pk)
+    reviews = book.review_set.all()
+
+    if review_pk is not None:
+        review = get_object_or_404(Review, book_id=book_pk, pk=review_pk)
+    else:
+        review = None
+
+    if request.method == "POST":
+        form = ReviewForm(request.POST, instance=review)
+
+        if form.is_valid():
+            updated_review = form.save(False)
+            updated_review.book = book
+
+            if review is None:
+                updated_review.creator = request.user.username
+                messages.success(request, "Review for \"{}\" created.".format(book))
+
+            updated_review.save()
+            return redirect("book_detail", book.pk)
+    else:
+        form = ReviewForm(instance=review)
+
+    context = {
+        'book': book,
+        'reviews': reviews,
+        "form": form,
+        "instance": review,
+        "model_type": "Review",
+        "related_instance": book,
+        "related_model_type": "Book"
+    }
+    return render(request, 'reviews/reviews_book.html', context=context)
 
 
 @login_required

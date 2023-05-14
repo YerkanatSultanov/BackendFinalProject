@@ -29,3 +29,9 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('avatar',)
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        exclude = ["date_edited", "book", "rating", "slug", "creator"]

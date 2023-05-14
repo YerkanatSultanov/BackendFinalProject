@@ -4,37 +4,20 @@
 {% block content %}
     <div class="main-reviews">
         <div class="reviews-book-place">
+
             <div class="book-cover">
-                <img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" alt="book cover">
+                <img src="{{ book.cover.url }}" alt="book cover">
             </div>
             <div class="name-description">
                 <div class="book-reviews-name">
-                    Memory
+                   {{ book.title }}
                 </div>
                 <div class="description-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea fugit illo molestiae nostrum
-                    perferendis
-                    saepe, veniam. Non, tenetur ut. Ad aliquid animi asperiores aspernatur consectetur consequatur
-                    consequuntur culpa dolor doloribus dolorum ea eaque eos error, esse excepturi expedita fugit id in
-                    laborum nihil nostrum numquam officiis perferendis, placeat quaerat quas quibusdam quisquam quos,
-                    recusandae sequi sunt suscipit temporibus tenetur totam ullam velit vitae! A aliquid, amet dolorem,
-                    doloremque eius facere fugit magni necessitatibus nemo nisi nulla, placeat quo tempora totam unde
-                    veniam
-                    voluptatibus? Ad amet blanditiis dignissimos earum eum eveniet excepturi exercitationem itaque
-                    maxime
-                    molestiae nam neque pariatur provident quidem rerum voluptatem, voluptates. Accusamus accusantium
-                    amet
-                    animi blanditiis commodi consectetur consequatur consequuntur debitis dolor doloribus eaque earum
-                    enim
-                    est eum hic impedit inventore iure labore nesciunt nihil non nostrum odio officiis perspiciatis
-                    possimus
-                    praesentium qui quibusdam quos, ratione reiciendis rem repudiandae sed sint sit vel velit
-                    voluptatem?
-                    Maxime nihil, reiciendis.
+                    {{ book.isbn }}
                 </div>
             </div>
             <div class="price-place">
-                1800 tg
+                {{ book.price }}
                 <div class="bucket">
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"
                          class="bi bi-bucket"
@@ -47,18 +30,25 @@
         </div>
     <div class="comment-block">
         <h3>Review Comments</h3>
+        <form method="post" {% if is_file_upload %}enctype="multipart/form-data" {% endif %}>
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">
+        {% if instance %}Save{% else %}Create{% endif %}
+    </button>
+</form>
+
 <ul>
-{#    {% for review in reviews %}#}
+    {% for review in reviews %}
     <li class="list-group-item">
-        <span class="text-info">Review comment: </span> <span>yerka</span>
+        <span class="text-info">Review comment: </span> <span>{{ review.content  }}</span>
         <br>
         <span class="text-info">Created on: </span><span>{{ review.date_created }}</span>
         <br>
         <span class="text-info">Creator: </span><span>{{ review.creator.username }}</span>
         <br>
-{#        <a href="{% url 'review_edit' book.pk review.pk %}">Edit Review</a>#}
     </li>
-{#    {% endfor %}#}
+    {% endfor %}
 </ul>
     </div>
     </div>
