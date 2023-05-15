@@ -2,17 +2,19 @@
 {% load static %}
 {% block content %}
     <link rel="stylesheet" href="{% static 'reviews/cart.css' %}">
-    <h1>Cart</h1>
+    <h1>Корзина</h1>
     {% if cart_items %}
         <div class="container">
+        <p style="font-size: 20px">Итого без доставки: {{ cost }} ₸</p>
             <div class="cart-items">
                 {% for item in cart_items %}
                     <div class="cart-item">
                         <div class="book-info">
-                            <img src="{{ item.book.cover.url }}" alt="Book 1"/>
+                            <img style="width: 110px;
+    height: 190px;" src="{{ item.book.cover.url }}" alt="Book 1"/>
                             <div class="item-details">
-                                <h3>{{ item.book.title }}</h3>
-                                <p>{{ item.book.price }} </p>
+                                <span class="title">{{ item.book.title }}</span>
+                                <p>{{ item.book.price }} ₸</p>
                                 <a href="{% url 'remove_item' item.book.id %}">
                                     <button class="remove-item">Remove</button>
                                 </a>

@@ -3,7 +3,7 @@ let num = 0;
 const sliderLine = document.querySelector('.slider-line');
 
 document.querySelector('.slider-next').addEventListener('click', function(){
-    offset += 240;
+    offset += 250;
     var slides = document.getElementsByClassName('borders');
     num += 1;
     if(slides.length === num){

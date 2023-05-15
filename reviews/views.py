@@ -182,7 +182,10 @@ def book_detail(request, book_pk, review_pk=None):
 def view_cart(request):
     cart = Cart.objects.get(user=request.user)
     cart_items = cart.cartitem_set.all()
-    return render(request, 'reviews/cart.html', {'cart_items': cart_items})
+    cost = 0
+    for i in cart_items:
+        cost += int (i.book.price)
+    return render(request, 'reviews/cart.html', {'cart_items': cart_items, 'cost': cost})
 
 
 @login_required

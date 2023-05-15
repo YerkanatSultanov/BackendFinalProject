@@ -70,9 +70,17 @@ body {
     width: 200px;
     height: 40px;
     border: 1px solid rgba(0, 0, 0, 0.2);
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all ease 200ms;
+}
+
+.cart:hover {
+    background-color: #3ab54a;
+    color: white;
+    margin: 0 0 10px 0;
 }
 
 #cart {
@@ -98,6 +106,7 @@ body {
     align-content: center;
     justify-items: center;
     width: auto;
+    height: 500px;
     padding: 15px;
     border: 1px solid #cecece;
     border-radius: 4px;
@@ -243,9 +252,9 @@ body {
 }
 
 .container1 {
-    max-height: 500px;
+    max-height: 1200px;
     width: 900px;
-    height: 450px;
+    height: 500px;
     margin: 30px auto;
     background: white;
     padding: 30px;
